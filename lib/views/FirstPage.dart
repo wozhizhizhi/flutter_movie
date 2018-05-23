@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animation/modles/Movie.dart';
 import 'package:flutter_animation/networkutil/NetWorkData.dart';
 import 'package:flutter_animation/weight/getMoviesGrid.dart';
+import 'dart:async';
 
 class FirstPage extends StatefulWidget {
   @override
@@ -28,6 +29,11 @@ class _FirstPageState extends State<FirstPage> {
     });
 
   }
+
+  Future<Null> _handleRefresh() async {
+    await  getMovieListData();
+  }
+
   @override
   Widget build(BuildContext context) {
     var content;
@@ -42,7 +48,7 @@ class _FirstPageState extends State<FirstPage> {
     }
     return new Scaffold(
       appBar: new AppBar(title: new Text("电影介绍"), centerTitle: true),
-      body: content,
+      body: new RefreshIndicator(child: content, onRefresh: _handleRefresh)
     );
   }
 }
