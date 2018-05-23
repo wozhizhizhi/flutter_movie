@@ -26,7 +26,7 @@ Widget getMoviesGrid(
                 child: new GridTile(
                   child: new PhotoHero(photo: movie.small, onTap: (){
                     Navigator.push(context, new MaterialPageRoute(builder: (context){
-                      return new MovieDelPage();
+                      return new MovieDelPage(movie);
                     }));
                   }),
                   footer: new GridTileBar(

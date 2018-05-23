@@ -1,11 +1,13 @@
 import 'dart:async';
 import 'package:flutter_animation/networkutil/NetWorkUtil.dart';
 import 'package:flutter_animation/modles/Movie.dart';
+import 'package:flutter_animation/modles/MovieDetail.dart';
 class NetWorkData
 {
   NetWorkUtil netWorkUtil;
   final String APPKEY = '0b2bdeda43b5688921839c8ecb20399b';
   final String _url = 'https://api.douban.com/v2/movie/in_theaters?';
+  final String urltwo = 'http://api.douban.com/v2/movie/subject/';
 
   NetWorkData()
   {
@@ -19,4 +21,8 @@ class NetWorkData
         return data.map((obj) => new Movie().fromMap(obj)).toList();
     });
 
+  Future<MovieDetail> getMovieDetail(String moveId)=>
+      netWorkUtil.getRequest('${urltwo}$moveId').then((dynamic res){
+        return MovieDetail.fromMap(res);
+      });
 }
