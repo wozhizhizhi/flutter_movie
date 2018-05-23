@@ -1,8 +1,8 @@
 # flutter_animation
 
-A new Flutter application.
+1. 第一阶段增加了电影列表，搭建主体结构
+2. 后续会逐步完善
 
 ## Getting Started
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+![image01](https://github.com/wozhizhizhi/flutter_movie/blob/master/gif/GIF.gif)
